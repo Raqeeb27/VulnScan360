@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>VulnScan360 Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; background-color: #f5f7fa; }
+    h1 { color: #333; }
+    h2 { color: #444; }
+    .summary { margin-bottom: 30px; }
+    .port-block {
+      background: #fff;
+      border-left: 8px solid #007BFF;
+      margin-bottom: 20px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .risk-High { border-color: #dc3545; }
+    .risk-Medium { border-color: #ffc107; }
+    .risk-Low { border-color: #28a745; }
+    .risk-Unknown { border-color: #1d0000; }
+    .cve-list { margin: 0; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>🔒 VulnScan360 - Vulnerability Report</h1>
+  {% if results %}
+  <div class="summary">
+    <p><strong>Target IP:</strong> {{ results[0].ip }}</p>
+    <p><strong>Total Open Ports:</strong> {{ results|length }}</p>
+  </div>
+
+  {% for item in results %}
+  <div class="port-block risk-{{ item.risk }}">
+    <h2>Port {{ item.port }} - {{ item.name|upper }}</h2>
+    <p><strong>Service:</strong> {{ item.product }} {{ item.version }}</p>
+    <p><strong>Risk Level:</strong> {{ item.risk }}</p>
+    <p><strong>CVEs:</strong></p>
+    {% if item.cves %}
+      <ul class="cve-list">
+        {% for line in item.cves.split('\n') %}
+          <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>- No CVEs detected</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {% else %}
+  <p>No vulnerabilities or open services were detected on this target.</p>
+  {% endif %}
+</body>
+</html>

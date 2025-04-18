@@ -1,0 +1,6 @@
+argparse
+jinja2
+pdfkit
+python-nmap
+
+## wkhtmltopdf
