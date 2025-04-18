@@ -11,8 +11,10 @@ def generate_pdf(data, output='report.pdf'):
     output_path = os.path.join(output_dir, output)
     
     rendered = template.render(results=data)
-
-    config = pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
+    
+    topdf_exe_windows_path = os.path.join( os.path.join('Utilities', 'wkhtmltopdf-windows'), 'wkhtmltopdf.exe')
+    
+    config = pdfkit.configuration(wkhtmltopdf=topdf_exe_windows_path)
 
     pdfkit.from_string(rendered, output_path, configuration=config)
     print(f"[+] Styled PDF report saved as {output}")
