@@ -15,16 +15,16 @@ A powerful and modular Python-based CLI tool for network scanning, vulnerability
 ```
 VulnScan360/
 ├── scan_engine/
-│   ├── nmap_scanner.py        # Runs and parses Nmap
-│   ├── vuln_finder.py         # CVE lookup using Vulners API or Searchsploit
-│   └── exploit_module.py      # (Optional) Metasploit automation
+│   ├── nmap_scanner.py          # Runs and parses Nmap
+│   ├── vuln_finder.py           # CVE lookup using Vulners API or Searchsploit
+│   └── exploit_module.py        # (Optional) Metasploit automation
 │ 
 ├── report_generator/
 │   ├── report_template.html     # Template report file
-│   └── generate_report.py     # Converts data → Markdown → PDF
+│   └── generate_report.py       # Converts data → Markdown → PDF
 │ 
 ├── core/
-│   └── main.py                # CLI entry point
+│   └── main.py                  # CLI entry point
 │ 
 ├── scan_engine/
 │   └── generated-reports.pdf   
