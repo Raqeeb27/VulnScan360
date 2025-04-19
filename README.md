@@ -29,6 +29,9 @@ VulnScan360/
 ├── scan_engine/
 │   └── generated-reports.pdf   
 │ 
+├── Utilities/
+│   └── utilities for windows and linux   
+│  
 ├── requirements.txt
 │ 
 ├── README.md
@@ -42,7 +45,7 @@ VulnScan360/
 
 | Function        | Tool                        |
 |---------------- |-----------------------------|
-| Scanning        | `nmap` + `python-nmap`      |
+| Scanning        | `Nmap` + `python-nmap`      |
 | Vuln Discovery  | Vulners API / Searchsploit  |
 | Exploitation    | Metasploit RPC (optional)   |
 | Reporting       | Jinja2 + HTML + PDFKit      |
@@ -66,7 +69,7 @@ VulnScan360/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/VulnScan360.git
+git clone https://github.com/Raqeeb27/VulnScan360.git
 cd VulnScan360
 ```
 
@@ -74,7 +77,7 @@ cd VulnScan360
 Create a virtual environment (optional but recommended):
 ```bash
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows: venv\Scripts\activate
 ```
 Install required packages:
 ```bash
@@ -83,29 +86,33 @@ pip install -r requirements.txt
 ### 3. Install External Tools
 
 🔹 Nmap
-Download Nmap and ensure it’s in your system PATH.
+Download Nmap and ensure it’s in your system PATH. Download [here](https://nmap.org/download.html)
+
+🔹 Python
+Download Python and ensure it’s in your system PATH. Download [here](https://www.python.org/downloads/)
 
 🔹 wkhtmltopdf (for PDF generation)
-Download from: https://wkhtmltopdf.org/downloads.html
+Already included in the project, can be downloaded from: [here](https://wkhtmltopdf.org/downloads.html)
 
-Note: Set path in generate_report.py if needed:
-```bash
-pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
-```
 🔹 Metasploit Framework (Optional)
 Install Metasploit
 
 Enable and configure the RPC server for integration.
 
+---
+
 ### 🧪 Usage
-Basic Scan & Report
-
+Basic Scan & Report (from project root directory)
+```bash
 python core/main.py --target 192.168.1.10
-Performs a full Nmap scan
+```
+ - Performs a full Nmap scan
 
-Parses service, version, CVE script output
+ - Parses service, version, CVE script output
 
-Generates a styled PDF report in /scan_reports/
+ - Generates a styled PDF report in /scan_reports/
+
+---
 
 ### 📄 Sample Report
 The PDF includes:
@@ -118,16 +125,20 @@ CVE listings (if any)
 
 Example:
 
-Red border = High Risk
+Red border = High Risk  
+Yellow = Medium Risk  
+Green = Low Risk  
 
-Yellow = Medium Risk
+View sample generated pdf report [here](https://github.com/Raqeeb27/VulnScan360/tree/main/Utilities/sample_generated_report.pdf)
 
-Green = Low Risk
+---
 
-### 🔐 Ethical Disclaimer
+## 🔐 Ethical Disclaimer
 This tool is intended for educational and authorized security testing purposes only.
 Unauthorized scanning of systems without explicit permission is illegal and unethical.
 Use responsibly.
+
+---
 
 ### 📈 Roadmap
  🔍 Implement vuln_finder.py using Vulners API / Searchsploit
@@ -140,14 +151,20 @@ Use responsibly.
 
  📊 Summary charts (optional dashboard)
 
+---
+
 ### 🤝 Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+
+---
 
 ### 📜 License
 This project is licensed under the MIT License — see the LICENSE file for details.
 
+---
+
 ### 🙌 Acknowledgements
-Nmap
-Vulners
-wkhtmltopdf
+Nmap  
+Vulners  
+wkhtmltopdf  
 Metasploit
