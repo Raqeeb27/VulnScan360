@@ -17,8 +17,7 @@ def generate_pdf(data, output='report.pdf'):
     wkhtmltopdf_command = ""
 
     if os_type == "Linux":
-        #topdf_exe_windows_path = os.path.join( os.path.join(os.path.join('Utilities', 'wkhtmltox-linux'),'bin'), 'wkhtmltopdf')
-        topdf_exe_windows_path = os.path.join( os.path.join(os.path.join(os.path.join('Utilities', 'usr'),'local'),'bin'), 'wkhtmltopdf')
+        topdf_exe_windows_path = os.path.join( os.path.join(os.path.join('Utilities', 'wkhtmltox-linux'),'bin'), 'wkhtmltopdf')
         print(topdf_exe_windows_path)
     elif os_type == "Windows":
         topdf_exe_windows_path = os.path.join( os.path.join('Utilities', 'wkhtmltopdf-windows'), 'wkhtmltopdf.exe')
