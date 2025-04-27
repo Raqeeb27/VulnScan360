@@ -18,24 +18,24 @@ VulnScan360/
 │   ├── nmap_scanner.py          # Runs and parses Nmap
 │   ├── vuln_finder.py           # CVE lookup using Vulners API or Searchsploit
 │   └── exploit_module.py        # (Optional) Metasploit automation
-│ 
+│
 ├── report_generator/
 │   ├── report_template.html     # Template report file
 │   └── generate_report.py       # Converts data → Markdown → PDF
-│ 
+│
 ├── core/
 │   └── main.py                  # CLI entry point
-│ 
+│
 ├── scan_engine/
-│   └── generated-reports.pdf   
-│ 
+│   └── generated-reports.pdf
+│
 ├── Utilities/
-│   └── utilities for windows and linux   
-│  
+│   └── utilities for windows and linux
+│
 ├── requirements.txt
-│ 
+│
 ├── README.md
-│ 
+│
 └── .gitignore
 ```
 
